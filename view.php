@@ -6,7 +6,7 @@ include('menu.php');
 mysql_connect("localhost", "kaninepe_neat", "venasuar?") or die(mysql_error());
 mysql_select_db("kaninepe_neat") or die(mysgl_error());
 
-echo "veiw.php<br />";
+#echo "veiw.php<br />";
 
 $query = "SELECT * FROM Post";
 $result = mysql_query($query) or die(mysql_error());
