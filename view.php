@@ -6,6 +6,14 @@ include('menu.php');
 mysql_connect("localhost", "kaninepe_neat", "venasuar?") or die(mysql_error());
 mysql_select_db("kaninepe_neat") or die(mysgl_error());
 
-echo "HEllo WorLD";
+echo "veiw.php<br />";
+
+$query = "SELECT * FROM Post";
+$result = mysql_query($query) or die(mysql_error());
+
+while($row = mysql_fetch_array($result)){
+	   echo $row['Owner']." - ".$row['Content'];
+	   echo "<br />";
+}
 
 ?>
