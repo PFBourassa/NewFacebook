@@ -1,0 +1,2 @@
+$Owner = $_POST['Owner'];
+$Content = $_POST['Content']
