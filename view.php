@@ -12,7 +12,7 @@ $query = "SELECT * FROM Post";
 $result = mysql_query($query) or die(mysql_error());
 
 while($row = mysql_fetch_array($result)){
-	   echo "<span class='name'>".$row['Owner']."</span><span class = 'content'> - ".$row['Content']."</span>";
+	   echo "<div class='post'><p class='name'>".$row['Owner']."</p><p class = 'post_content'>".$row['Content']."</p></div>";
 	   echo "<br />";
 }
 
