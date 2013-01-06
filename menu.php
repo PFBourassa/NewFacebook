@@ -1,14 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="web.css" />
-<style>
 
-#container {
-width:960px;
-margin:0px auto;
-}
-
-</style>
 </head>
 <body>
 
