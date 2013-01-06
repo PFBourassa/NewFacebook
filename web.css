@@ -1,3 +1,8 @@
+body {
+  background-color:#000;
+  color:#0a8f43;
+}
+
 #newpost{
 
 }
@@ -19,4 +24,9 @@ margin:0 auto;
 }
 
 .post .post_content{
+}
+
+#container {
+width:960px;
+margin:0px auto;
 }
