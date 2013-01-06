@@ -18,5 +18,5 @@ while($row = mysql_fetch_array($result)){
 }
 echo "</div>";
 
-echo "</body>";
+echo "</body></html>";
 ?>
