@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if(Isset($_SESSION['user_id']))
+  echo "welcome back".user_id;
+else
+  echo "I don't know who you are.";
+
 include('menu.php');
 #include('dbconnect.php')
 
