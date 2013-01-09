@@ -2,16 +2,16 @@
 
 session_start();
 
+include('menu.php');
+
 if(Isset($_SESSION['user_id']))
   echo "welcome back".user_id;
 else
-  echo "I don't know who you are.";
+  include('login_widget.php');
 
-include('menu.php');
+
 include('dbconnect.php');
-include('login_widget.php');
-
-#echo "veiw.php<br />";
+#include('login_widget.php');
 
 $query = "SELECT * FROM Post ORDER BY time DESC";
 $result = mysql_query($query) or die(mysql_error());
