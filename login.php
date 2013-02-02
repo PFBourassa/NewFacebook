@@ -3,7 +3,7 @@
 include('dbconnect.php');
 
 function logged_in() {
-  return (isset($_SESSION[user_id]) ? : ;
+  return (isset($_SESSION[user_id])) ?  true : false ;
 }
 
 function sanitize($data) {
@@ -26,7 +26,9 @@ function login($username, $password) {
   $username = sanitize($username);
   $password = md5($password);
 
-  return (mysql_result(mysql_query("SELECT COUNT (`User_id`) FROM `User` WHERE `Name` = '$username' AND `password` = '$password'"), 0) == 1) ? $user_id : false;
+  $query = mysql_query("SELECT COUNT(`User_id`) FROM `User` WHERE `Name` = '$username' AND `Password` = '$password'");
+
+  return (mysql_result($query, 0) == 1) ? $user_id : false ;
 }
 
 if (empty($_POST) === false) {
@@ -42,11 +44,12 @@ if (empty($_POST) === false) {
   else {
     $login = login($username, $password);
     if ($login === false){
-      echo "login failed. Password does not match.";
+      echo "login failed. Password ".$password." does not match username ".$username.".";
     }
     else {
       echo "login successfull!";
       $_SESSION['user_id'] = $login;
+      echo "$login";
       header('Location: index.php');
       exit();
     }
