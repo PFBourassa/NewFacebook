@@ -11,6 +11,4 @@ while($row = mysql_fetch_array($result)){
 	   echo "<br />";
 }
 echo "</div><!--feed-->";
-
-echo "</body><!--container--></html>";
 ?>

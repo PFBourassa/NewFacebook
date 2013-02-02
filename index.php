@@ -4,19 +4,26 @@ session_start();
 
 <html>
 
-<?php 
-include('header.php');
+<?php
+include('head.php');
 ?>
 
 <body>
+<div id="container">
 
-<?php
+<?php 
+include('header.php');
+
 //$_SESSION['user_id'] = "foo";
 if(Isset($_SESSION['user_id'])){
-  echo "Welcome back - <a href='logout.php'>Logout</a> ";}
+  include('loggedin.php');}
 else{
   include('login_widget.php');}
 
+include('post.html');
 include('view.php');
 ?>
+
+</div><!--container-->
+</body>
 </html>
