@@ -1,3 +1,3 @@
 <?php
-echo "Welcome back! - <a href='logout.php'>Logout</a>";
+echo "<div id='loggedin'>Welcome back, ".$user_data['Name']." - <a href='logout.php'>Logout</a></div><!--loggedin-->";
 ?>

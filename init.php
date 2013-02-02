@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require 'dbconnect.php';
 require 'general.php';
 
 if (logged_in() === true) {
