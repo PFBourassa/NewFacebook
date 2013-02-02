@@ -1,5 +1,5 @@
 <?php
-
+include('init.php');
 include('dbconnect.php');
 
 function logged_in() {
@@ -47,9 +47,7 @@ if (empty($_POST) === false) {
       echo "login failed. Password ".$password." does not match username ".$username.".";
     }
     else {
-      echo "login successfull!";
       $_SESSION['user_id'] = $login;
-      echo "$login";
       header('Location: index.php');
       exit();
     }
