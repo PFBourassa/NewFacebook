@@ -41,4 +41,23 @@ function user_id_from_username($username){
   return mysql_result(mysql_query("SELECT `User_id` FROM `User` WHERE `Name` = '$username'"), 0, 'User_id');
 }
 
+function output_errors($errors) {
+  return '<ul><li>' . implode('</li><li>', $errors) . '</li><ul>';
+}
+
+function array_sanitize(&$item) {
+  $item = mysql_real_escape_string($item);
+}
+
+function register_user($register_data) {
+  //array_walk($register_data,'array_sanitize()');
+  $register_data['Password'] = md5($register_data['Password']);
+
+  $fields = '`' . implode('`, `', array_keys($register_data)) . '`';
+  $data = '\'' . implode('\', \'', $register_data) . '\'';
+  //echo $fields;
+
+  mysql_query("INSERT INTO `User` ($fields) VALUES ($data)");
+}
+
 ?>

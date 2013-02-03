@@ -1,5 +1,4 @@
 <?php
-include('init.php');
 $Owner = $user_data['Name'];
 $Content = $_POST['Content'];
 $Time = date("r");
