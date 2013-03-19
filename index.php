@@ -14,7 +14,7 @@ include('head.php');
 <?php 
 include('header.php');
 
-//$_SESSION['user_id'] = "foo";
+//RUssel was here
 if(logged_in()){
   include('loggedin.php');
 
