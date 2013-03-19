@@ -13,7 +13,7 @@ function user_data($user_id){
     $data = mysql_fetch_assoc(mysql_query("SELECT * FROM `User` WHERE `User_id` = $user_id"));
     return $data;
   }
-  echo $fields;
+  //echo $fields;
 }
 
 function logged_in() {
