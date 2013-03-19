@@ -30,8 +30,24 @@ if (empty($_POST) === false) {
     //}
   }
 }
-
+if (empty($_POST) === false && empty($errors) === true) {
+  $register_data = array(
+    'Name' => $_POST['Name'],
+    'Password' => $_POST['Password']//,
+    //'email' => $_POST['Email']
+  );
+  register_user($register_data);
+  header('Location: register.php?YES');
+  exit();
+} 
+else if (empty($errors) === false){
+  echo output_errors($errors);
+}
+if (isset($_GET['YES']) && empty($_GET['YES'])) {
+  echo 'Welcome to the club!';
+}
 ?>
+
 <html>
 <?php
 include('head.php');
@@ -41,29 +57,16 @@ include('head.php');
 <div id="container">
 <?php 
 include('header.php');
+
+if (isset($_GET['YES']) && empty($_GET['YES'])) {
+  echo '<h1>Welcome to the club!</h1>';
+  echo 'Back to <a href="index.php">main page</a>';
+}
+
 ?>
 
 <h1>Register</h1>
-<?php
-if (isset($_GET['YES']) && empty($_GET['YES'])) {
-  echo 'Welcome to the club!';
-}
 
-if (empty($_POST) === false && empty($errors) === true) {
-  $register_data = array(
-    'Name' => $_POST['Name'],
-    'Password' => $_POST['Password']//,
-    //'email' => $_POST['Email']
-  );
-  
-  register_user($register_data);
-  header('Location: register.php?YES');
-  exit();
-} 
-else if (empty($errors) === false){
-  echo output_errors($errors);
-}
-?>
 <form action="" method="post">
   <ul>
     <li>

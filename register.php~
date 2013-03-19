@@ -25,13 +25,29 @@ if (empty($_POST) === false) {
     if ($_POST['Password'] != $_POST['confirm_password']) {
       $errors[] = 'The passwords did not match.<br />';
     }
-    if (email_exists($_POST['email']) === true) {
-      $errors[] = "There is already an account assoicated with that email address.";
-    }
+    //if (email_exists($_POST['email']) === true) {
+      //$errors[] = "There is already an account assoicated with that email address.";
+    //}
   }
 }
-
+if (empty($_POST) === false && empty($errors) === true) {
+  $register_data = array(
+    'Name' => $_POST['Name'],
+    'Password' => $_POST['Password']//,
+    //'email' => $_POST['Email']
+  );
+  register_user($register_data);
+  header('Location: index.php?YES');
+  exit();
+} 
+else if (empty($errors) === false){
+  echo output_errors($errors);
+}
+if (isset($_GET['YES']) && empty($_GET['YES'])) {
+  echo 'Welcome to the club!';
+}
 ?>
+
 <html>
 <?php
 include('head.php');
@@ -44,26 +60,7 @@ include('header.php');
 ?>
 
 <h1>Register</h1>
-<?php
-if (isset($_GET['YES']) && empty($_GET['YES'])) {
-  echo 'Welcome to the club!';
-}
 
-if (empty($_POST) === false && empty($errors) === true) {
-  $register_data = array(
-    'Name' => $_POST['Name'],
-    'Password' => $_POST['Password']//,
-    //'email' => $_POST['Email']
-  );
-  
-  register_user($register_data);
-  header('Location: register.php?YES');
-  exit();
-} 
-else if (empty($errors) === false){
-  echo output_errors($errors);
-}
-?>
 <form action="" method="post">
   <ul>
     <li>
