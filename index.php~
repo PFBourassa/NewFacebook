@@ -18,7 +18,7 @@ include('header.php');
 if(logged_in()){
   include('loggedin.php');
 
-  include('post.html');
+  include('newpost.php');
 }
 else{
   include('login_widget.php');

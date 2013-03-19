@@ -33,7 +33,6 @@ if (empty($_POST) === false) {
 
 ?>
 <html>
-
 <?php
 include('head.php');
 ?>

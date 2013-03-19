@@ -3,8 +3,6 @@ include('init.php');
 include('dbconnect.php');
 
 
-
-
 function login($username, $password) {
   $user_id = user_id_from_username($username);
   

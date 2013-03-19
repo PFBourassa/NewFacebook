@@ -25,9 +25,9 @@ if (empty($_POST) === false) {
     if ($_POST['Password'] != $_POST['confirm_password']) {
       $errors[] = 'The passwords did not match.<br />';
     }
-    if (email_exists($_POST['email']) === true) {
-      $errors[] = "There is already an account assoicated with that email address.";
-    }
+    //if (email_exists($_POST['email']) === true) {
+      //$errors[] = "There is already an account assoicated with that email address.";
+    //}
   }
 }
 
